@@ -20,7 +20,14 @@ namespace WpfProjektSemestralny.Scripts
         {
             if(user != null)
             {
-               
+                Users editUser = db.Users.Find(user.UserID);
+                editUser.UserID = user.UserID;
+                editUser.UserName = user.UserName;
+                editUser.Password = user.Password;
+                editUser.PhoneNumber = user.PhoneNumber;
+                editUser.BankName = user.BankName;
+                editUser.BankAccountNumber = user.BankAccountNumber;
+                db.SaveChanges();
             }
         }
         public void Delete(int id)
